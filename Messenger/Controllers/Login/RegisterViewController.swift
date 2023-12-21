@@ -191,7 +191,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func changeProfilePic() {
-        print("Tapped")
+        presentPhotoActionSheet()
     }
     
     func alertUserLoginError() {
@@ -211,5 +211,40 @@ extension RegisterViewController: UITextFieldDelegate {
             registerBtnTapped()
         }
         return true
+    }
+}
+
+
+
+
+extension RegisterViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+    }
+    
+    func presentPhotoActionSheet() {
+        let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancle",
+                                            style: .cancel,
+                                            handler: nil))
+        
+        actionSheet.addAction(UIAlertAction(title: "Take Photo",
+                                            style: .default,
+                                            handler: { _ in
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Choose Photo",
+                                            style: .default,
+                                            handler: { _ in
+            
+        }))
+        
+        present(actionSheet, animated: true)
     }
 }
