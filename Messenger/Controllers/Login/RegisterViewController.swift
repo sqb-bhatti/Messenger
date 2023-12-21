@@ -1,8 +1,5 @@
 //
-//  RegisterViewController.swift
-//  Messenger
-//
-//  Created by Saqib Bhatti on 21/12/23.
+
 //
 
 import UIKit
