@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
 
@@ -192,7 +193,16 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        // Firebase Login
+        // Firebase Register. Create new user
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: pwd) { authResult, error in
+            guard let result = authResult, error == nil else {
+                print("Error creating user")
+                return
+            }
+            
+            let user = result.user
+            print("Created User: \(user)")
+        }
     }
     
     @objc private func changeProfilePic() {
